@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 08:36:20 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/04 08:46:26 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/04 08:55:20 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(void)
 	{
 		// Fork's return value is not 0
 		// which means we are in the parent process
-		prinf("Parent: I'm the parent, my child's pid is %d.\n", pid);
+		printf("Parent: I'm the parent, my child's pid is %d.\n", pid);
 	}
 	return (0);
 }
