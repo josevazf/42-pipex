@@ -6,7 +6,7 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 10:36:01 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/05 10:14:10 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/09/06 11:16:12 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,19 +14,19 @@ NAME		= pipex
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -rf
-OBJS		= main.o
+OBJS		= utils.o ft_split.o
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) main.c $(OBJS) -o $(NAME) && ./pipex
+	$(CC) $(CFLAGS) main.c $(OBJS) -o $(NAME) && ./pipex ls -l
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
 	
 clean:
 	$(RM) $(OBJS)
 
-fclean: clean
+fe: clean
 	$(RM) $(NAME)
 	
 re: fclean

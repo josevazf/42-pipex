@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:49:31 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/05 10:14:43 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/06 10:42:34 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,15 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include <limits.h>
 
-// check_args.c
-int		check_args(char **argv);
-int		is_number(char *argv);
-int		is_duplicate(char **argv);
+// ft_split.c
+int		ft_isdelimiter(char c);
+int		ft_countwords(char *str);
+char 	*ft_substring(int start, int end, char *str);
+char 	**ft_split(char *str);
 
-// check_args_utils.c
-int		is_sign(char c);
-int		is_digit(char c);
-int		intcmp(const char *s1, const char *s2);
-long	ft_atoi(const char *str);
-int		is_delimiter(char c);
-
+// utils.c
+int		ft_strlen(char *str);
+char 	**ft_clean_argv(int argc, char **argv);
 
 #endif
