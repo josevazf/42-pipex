@@ -6,7 +6,7 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 10:36:01 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/06 11:16:12 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/09/06 19:00:48 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		= pipex
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -rf
-OBJS		= utils.o ft_split.o
+OBJS		= utils_libft.o utils_argv.o
 
 all: $(NAME)
 
