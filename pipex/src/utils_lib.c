@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   utils_lib.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/15 15:17:10 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/04/19 14:31:03 by jrocha-v         ###   ########.fr       */
+/*   Created: 2023/09/07 10:01:13 by jrocha-v          #+#    #+#             */
+/*   Updated: 2023/09/07 12:34:26 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Returns a copy of ’s1’ with the characters specified in ’set’ removed
-   from the beginning and the end of the string. */
+#include "pipex.h"
 
-#include "libft.h"
-
-char	*ft_strtrim(char const *s1, char const *set)
+int		ft_isdelimiter(char s, char c)
 {
-	char	*str;
-	size_t	i;
+	if (s == c)
+		return (1);
+	return (0);
+}
 
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	i = ft_strlen(s1);
-	while (*s1 && ft_strrchr(set, s1[i]))
-		i--;
-	str = ft_substr(s1, 0, i + 1);
-	return (str);
+int		ft_iswhitespace(char c)
+{
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	return (0);
 }
