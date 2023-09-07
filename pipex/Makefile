@@ -6,7 +6,7 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 10:36:01 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/07 12:40:56 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/09/07 15:11:54 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJS		= $(SRCS:%.c=$(OBJS_DIR)/%.o)
 
 all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) && ./pipex  ls -l
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) && ./pipex "ls -la"
 	echo "Finished!"
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
