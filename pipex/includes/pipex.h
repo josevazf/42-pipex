@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:49:31 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/07 12:28:44 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/07 13:06:37 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@
 # include <stdio.h>
 
 // utils_argv.c
-char 	**ft_clean_argv(int argc, char **argv);
-char	**ft_parse_envp(char **envp);
-char	*get_first_word(char *argv);
+char	**ft_parse_envp(char **envp); 					// OK
+char	*get_first_word(char *argv); 					// OK
+char	*get_cmd_path(char **clean_envp, char *cmd);
 
-// add to utils_lib.c
-int		ft_isdelimiter(char s, char c);
-int		ft_iswhitespace(char c);
+// utils_lib.c (add to libft)
+int		ft_isdelimiter(char s, char c); 				// OK
+int		ft_iswhitespace(char c); 						// OK
+
+// FREEEEE
+// free(paths) from ft_parse_envp
 
 #endif

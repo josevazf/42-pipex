@@ -6,13 +6,13 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:11:42 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/07 12:24:39 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/07 13:15:33 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char 	**ft_clean_argv(int argc, char **argv)
+/* char 	**ft_clean_argv(int argc, char **argv)
 {	
 	char 	**clean_argv;
 	int		i;
@@ -30,7 +30,7 @@ char 	**ft_clean_argv(int argc, char **argv)
 		i++;		
 	}
 	return (clean_argv);
-}
+} */
 
 char	*get_first_word(char *argv)
 {
@@ -73,9 +73,26 @@ char	**ft_parse_envp(char **envp)
 	return (paths);	
 }
 
-/* char	*get_cmd_path(char **clean_envp, char *clean_argv)
+char	*get_cmd_path(char **clean_envp, char *cmd)
 {
-	char	**new_path;
-
-	new_path = ft_strjoin()
-} */
+	char	*temp_path;
+	char	*new_path;
+	int 	i;
+	
+	i = 0;
+	while(clean_envp[i])
+	{
+		temp_path = ft_strjoin(clean_envp[i], "/");
+		if (temp_path == NULL)
+			return (NULL);
+		free (temp_path);
+		new_path = ft_strjoin(temp_path, cmd);
+		if (new_path == NULL)
+			return (NULL);
+		if (access(new_path, X_OK) == 0)
+			return (new_path);
+		free(new_path);
+		i++;		
+	}
+	return (NULL);
+}
