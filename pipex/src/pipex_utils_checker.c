@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_clean.c                                      :+:      :+:    :+:   */
+/*   pipex_utils_checker.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 14:38:49 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/08 15:34:13 by jrocha-v         ###   ########.fr       */
+/*   Created: 2023/09/07 10:01:13 by jrocha-v          #+#    #+#             */
+/*   Updated: 2023/09/19 15:40:04 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	error_pipe(int fd1, int fd2)
+void	ft_error(char *str, int exit_code)
 {
-	
+	perror(str);
+	exit(exit_code);
+}
+
+void	free_tab_and_exit(char **strs, char *message)
+{
+	ft_free_matrix(strs);
+	ft_error(message, 1);
+}
+
+int	check_args(int argc)
+{
+	if (argc != 2)
+	{
+		ft_printf("Invalid input.\nValid input:\n");
+		ft_printf("./pipex infile cmd1 cmd2 outfile\n");
+		exit(1);
+	}
+	return (0);
 }

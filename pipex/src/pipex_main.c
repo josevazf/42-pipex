@@ -1,57 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pipex_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/19 12:18:41 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/19 15:42:40 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-/* 
-static void	ft_pipex(char **argv, char **path, char **envp)
+
+int	ft_fork()
 {
-
-
-
+	pid_t	pid; // Stores the return value of fork
 	
-} */
+	pid = fork(); // Creating the child process
+	if (pid == -1)
+		return (1);
+	return (0);
+}
 
 int main(int argc, char **argv, char **envp) 
 {
-	char	**envp_paths;
-	char	*cmd;
-	char	**cmd2;
+	char	**cmd;
 	char	*cmd_path;
 	int 	i;
 
 	i = 0;
-	if (argc != 2)
-	{
-		printf("Bad arg usage");
-		return (1);
-	}
-	
-	envp_paths = ft_parse_envp(envp); // Returns paths from env file
-/* 	while (envp_paths[i])
-	{
-		ft_printf("envp[%d]: %s\n", i, envp_paths[i]);
-		i++;
-	} */
-	cmd = ft_firstword(argv[1]); // Get the first command to run
-	cmd2 = ft_split(argv[1], ' ');
-	cmd_path = get_cmd_path(envp_paths, cmd);
-	ft_printf("Final Command Path: %s\n", cmd_path);
-	
-/* 	i = 0;
-	while (envp_paths[i])
-	{
-		printf("envp[%d]: %s\n", i, envp_paths[i]);
-		i++;
-	} */
-
-	execve(cmd_path, cmd2, envp);
+	check_args(argc);
+	cmd = ft_split(argv[1], ' ');
+	cmd_path = get_cmd_path(ft_parse_envp(envp), ft_firstword(argv[1]));
+	// create parent
+	// create children
+	// 
+	execve(cmd_path, cmd, envp);
 }

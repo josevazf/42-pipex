@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_lib.c                                        :+:      :+:    :+:   */
+/*   ft_free_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/07 10:01:13 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/07 12:34:26 by jrocha-v         ###   ########.fr       */
+/*   Created: 2023/09/19 15:45:40 by jrocha-v          #+#    #+#             */
+/*   Updated: 2023/09/19 15:45:59 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int		ft_isdelimiter(char s, char c)
+void	ft_free_matrix(char **matrix)
 {
-	if (s == c)
-		return (1);
-	return (0);
-}
+	int	i;
 
-int		ft_iswhitespace(char c)
-{
-	if ((c >= 9 && c <= 13) || c == 32)
-		return (1);
-	return (0);
+	i = 0;
+	while (matrix[i] != NULL)
+	{
+		free(matrix[i]);
+		i++;
+	}
+	free(matrix);
 }
