@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 09:49:31 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/19 10:53:35 by jrocha-v         ###   ########.fr       */
+/*   Created: 2023/04/27 09:31:27 by jrocha-v          #+#    #+#             */
+/*   Updated: 2023/09/19 11:09:04 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-#include "../libft/libft.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <sys/wait.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include "../libft.h"
 
-// utils_argv.c
-char	**ft_parse_envp(char **envp); 					// OK
-char	*get_cmd_path(char **clean_envp, char *cmd);
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-// FREEEEE
-// free(paths) from ft_parse_envp
+char	*get_next_line(int fd);
+char	*ft_strtrim_l(char *bufftxt);
+char	*ft_strtrim_r(char *bufftxt);
+char	*ft_get_text(int fd, char *bufftxt);
 
 #endif

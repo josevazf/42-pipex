@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 09:26:26 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/07 09:25:51 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/19 11:25:46 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include "ft_printf/ft_printf.h"
+# include "get_next_line/get_next_line.h"
 
 typedef struct s_list
 {
@@ -56,6 +58,13 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_itoa(int n);
+
+// New functions
+int		ft_iswhitespace(char c);
+int		ft_isdelimiter(char s, char c);
+char	*ft_firstword(char *argv);
+
+// List manipulation
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);

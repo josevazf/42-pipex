@@ -6,14 +6,15 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/15 22:23:12 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/07 09:34:11 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/09/19 10:52:28 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
-LIBFLAGS	= ar -rcs
+#create and index library (ar - archive, -r insert files by replacement, -c create the archve, -s index the files
+LIBFLAGS	= ar -rcs 
 RM			= rm -rf
 OBJS_DIR	= objs
 SRCS		= ft_atoi.c \
@@ -58,23 +59,40 @@ SRCS		= ft_atoi.c \
 			  ft_lstdelone.c \
 			  ft_lstclear.c \
 			  ft_lstiter.c \
-			  ft_lstmap.c
-			  
+			  ft_lstmap.c \
+			  ft_printf/ft_printf_utils.c \
+			  ft_printf/ft_printf.c \
+			  get_next_line/get_next_line.c \
+			  get_next_line/get_next_line_utils.c \
+			  ft_iswhitespace.c \
+			  ft_isdelimiter.c \
+			  ft_firstword.c
+
+# Substitute .c with .o 
 OBJS		= $(SRCS:%.c=$(OBJS_DIR)/%.o)
 
+#create .o fies
+# $< first prerequisite aka .c; $@ output/targer file aka .o
 $(OBJS_DIR)/%.o : %.c
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) -I. -c $< -o $@
 
+#default target - create libft.a
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(LIBFLAGS) $(NAME) $(OBJS)
 
+#remove .o files
 clean:
 	$(RM) $(OBJS_DIR)
 
+#remove static library
 fclean: clean
 	$(RM) $(NAME)
 
+#reset environment - remove everything and recompile
 re: fclean all
+
+#targets declared as .PHONY will force the command even if there is a subdirectory or file with it's name
+.PHONY: all clean fclean re
