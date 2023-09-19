@@ -6,13 +6,13 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:11:42 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/07 13:15:33 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:45:17 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-/* char 	**ft_clean_argv(int argc, char **argv)
+char 	**ft_clean_argv(int argc, char **argv)
 {	
 	char 	**clean_argv;
 	int		i;
@@ -30,7 +30,7 @@
 		i++;		
 	}
 	return (clean_argv);
-} */
+}
 
 char	*get_first_word(char *argv)
 {
@@ -96,3 +96,4 @@ char	*get_cmd_path(char **clean_envp, char *cmd)
 	}
 	return (NULL);
 }
+
