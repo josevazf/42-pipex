@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:11:42 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/20 12:48:45 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:14:43 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*get_cmd_path(char **envp_paths, char *cmd)
 		if (temp_path == NULL)
 			return (NULL);
 		new_path = ft_strjoin(temp_path, cmd);
-		free (temp_path);
+		free(temp_path);
 		if (new_path == NULL)
 			return (NULL);
 		if (access(new_path, X_OK) == 0)
@@ -62,4 +62,3 @@ char	*get_cmd_path(char **envp_paths, char *cmd)
 	}
 	return (NULL);
 }
-

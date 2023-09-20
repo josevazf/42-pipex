@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:49:31 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/20 14:23:52 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:49:32 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@
 # define OUT_FILE 1
 
 // pipex_main.c
-void	process_child(int *pipe_fd, char *argv, char **envp);
-void 	process_parent(pid_t pid, int *pipe_fd, char *argv, char **envp);
+void 	pipex(char **argv, char **envp);
+/* void	process_child(int *pipe_fd);
+void 	process_parent(pid_t pid, int *pipe_fd); */
 
 // pipex_utils_args.c
 char	**parse_path(char **envp);

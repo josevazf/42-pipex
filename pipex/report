@@ -1,0 +1,15 @@
+==208168== FILE DESCRIPTORS: 4 open at exit.
+==208168== Open file descriptor 3: /nfs/homes/jrocha-v/jrocha-v_42/CommonCore/42-pipex/pipex/report
+==208168==    <inherited from parent>
+==208168== 
+==208168== Open file descriptor 2: /dev/pts/1
+==208168==    <inherited from parent>
+==208168== 
+==208168== Open file descriptor 1: /dev/pts/1
+==208168==    <inherited from parent>
+==208168== 
+==208168== Open file descriptor 0: /dev/pts/1
+==208168==    <inherited from parent>
+==208168== 
+==208168== 
+==208168== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
