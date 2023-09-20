@@ -6,14 +6,14 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:11:42 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/20 10:36:17 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:48:45 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-// Find 'PATH=' in envP file and return the paths delimited by ':'
-char	**ft_parse_envp(char **envp)
+// Find 'PATH=' in envp file and return the paths delimited by ':'
+char	**parse_path(char **envp)
 {
 	char 	*envp_dup;
 	char	**paths;

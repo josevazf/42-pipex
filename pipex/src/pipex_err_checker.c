@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 10:01:13 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/20 11:58:56 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:05:09 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,12 @@ void	ft_error(char *str, int exit_code)
 void	free_tab_and_exit(char **strs, char *message)
 {
 	ft_free_matrix(strs);
-	ft_error(message, 1);
+	ft_error(message, ERROR);
 }
 
 int	check_args(int argc)
 {
-	if (argc != 2)
-	{
-		ft_printf("Usage:\n");
-		ft_printf("./pipex infile cmd1 cmd2 outfile\n");
-		exit(1);
-	}
+	if (argc != 3)
+		ft_error("Usage:\n./pipex infile cmd1 cmd2 outfile\n", ERROR);
 	return (0);
 }
