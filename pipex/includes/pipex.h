@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:49:31 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/20 13:04:23 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:23:52 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@
 # define OUT_FILE 1
 
 // pipex_main.c
-
+void	process_child(int *pipe_fd, char *argv, char **envp);
+void 	process_parent(pid_t pid, int *pipe_fd, char *argv, char **envp);
 
 // pipex_utils_args.c
 char	**parse_path(char **envp);
 char	*get_cmd_path(char **clean_envp, char *cmd);
 
-// pipex_utils_checker.c
+// pipex_err_checker.c
 int		check_args(int argc);
 void	ft_error(char *str, int exit_code);
 void	free_tab_and_exit(char **strs, char *message);
