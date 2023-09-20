@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 10:01:13 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/19 15:40:04 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:58:56 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_args(int argc)
 {
 	if (argc != 2)
 	{
-		ft_printf("Invalid input.\nValid input:\n");
+		ft_printf("Usage:\n");
 		ft_printf("./pipex infile cmd1 cmd2 outfile\n");
 		exit(1);
 	}
