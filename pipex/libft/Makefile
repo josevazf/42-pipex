@@ -6,7 +6,7 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/15 22:23:12 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/19 15:44:00 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/09/20 09:04:34 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ SRCS		= ft_atoi.c \
 # Substitute .c with .o 
 OBJS		= $(SRCS:%.c=$(OBJS_DIR)/%.o)
 
-#create .o fies
+#create .o files
 # $< first prerequisite aka .c; $@ output/targer file aka .o
 $(OBJS_DIR)/%.o : %.c
 	mkdir -p $(@D)
@@ -97,3 +97,4 @@ re: fclean all
 
 #targets declared as .PHONY will force the command even if there is a subdirectory or file with it's name
 .PHONY: all clean fclean re
+.SILENT:

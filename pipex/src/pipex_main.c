@@ -6,34 +6,46 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/19 15:42:40 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:14:54 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	ft_fork()
+void pipex(int argc, chat **argv, char **envp)
 {
-	pid_t	pid; // Stores the return value of fork
+	pid_t pid;
+	int pipe_fd[2];
 	
-	pid = fork(); // Creating the child process
+	if (pipe(pipe_fd) == -1)
+		ft_error("Failed creating pipe!", 1);
+	pid = fork();
 	if (pid == -1)
-		return (1);
-	return (0);
+		ft_error("Failed creating fork!", 2);
+	if (pid == 0)
+	[
+		close(pipe_fd[0]);
+		dup2(pipe_fd[1], STDOUT_FILENO);
+		close(pipe_fd[1]);
+	]
+	
 }
+
 
 int main(int argc, char **argv, char **envp) 
 {
-	char	**cmd;
-	char	*cmd_path;
-	int 	i;
 
-	i = 0;
+	
 	check_args(argc);
-	cmd = ft_split(argv[1], ' ');
-	cmd_path = get_cmd_path(ft_parse_envp(envp), ft_firstword(argv[1]));
-	// create parent
-	// create children
-	// 
-	execve(cmd_path, cmd, envp);
+	// open file to read
+	open_file(argv[1], IN_FILE);
+	// create pipe
+	pipex(argc, argv, envp);
+	
+	// execute first command
+	ft_execute(argv[1], argv[1], envp);
+	// redirect to pipe 
+	// open file to write to
+	open_file(argv[4], OUT_FILE);
+	
 }

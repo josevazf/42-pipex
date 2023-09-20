@@ -6,7 +6,7 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 10:36:01 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/19 15:22:25 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/09/20 09:03:02 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ clean:
 	$(RM) $(OBJS_DIR)
 	$(MAKE) $(MK_FLAG) clean -C $(LIBFT_DIR)
 
-fe: clean
+fclean: clean
 	$(RM) $(NAME) $(LIBFT)
 
 #reset environment - remove everything and recompile
