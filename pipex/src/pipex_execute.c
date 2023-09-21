@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 09:46:06 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/20 15:21:38 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/21 10:42:31 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	execute(char *argv, char **envp)
 		ft_free_matrix(cmd);
 		ft_free_matrix(paths);
 		free(cmd_path);
-		ft_error("Could not execute command", ERROR);
+		ft_error("Error executing command", ERROR);
 	}
 	ft_free_matrix(cmd);
 	ft_free_matrix(paths);
