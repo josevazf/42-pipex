@@ -6,26 +6,11 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/25 16:20:48 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:33:46 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-/* void	process_child(int *pipe_fd)
-{
-	close(pipe_fd[0]);
-	dup2(pipe_fd[1], STDOUT_FILENO);
-	close(pipe_fd[1]);
-}
-
-void 	process_parent(pid_t pid, int *pipe_fd)
-(
-	close(pipe_fd[1]);
-	waitpid(pid, NULL, 0);
-	dup2(pipe_fd[0], STDIN_FILENO);
-	close(pipe_fd[0]);
-) */
 
 void	ft_error(char *msg, int exit_code)
 {
@@ -43,7 +28,7 @@ void 	pipex(char **argv, char **envp)
 	pid = fork();
 	if (pid == -1)
 		ft_error("Failed creating fork", ERROR);
-	if (pid == 0)
+	if (pid == 0) // child process
 	{
 		close(pipe_fd[0]);
 		dup2(pipe_fd[1], STDOUT_FILENO);
