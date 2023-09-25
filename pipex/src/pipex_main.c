@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/25 17:33:46 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/25 17:49:33 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void 	pipex(char **argv, char **envp)
 	pid = fork();
 	if (pid == -1)
 		ft_error("Failed creating fork", ERROR);
-	if (pid == 0) // child process
+	if (pid == 0)
 	{
 		close(pipe_fd[0]);
 		dup2(pipe_fd[1], STDOUT_FILENO);
