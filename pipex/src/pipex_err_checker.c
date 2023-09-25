@@ -6,22 +6,15 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 10:01:13 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/20 14:53:39 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:16:06 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	check_args(int argc)
+void	ft_error(char *msg, int exit_code)
 {
-	if (argc != 5)
-		ft_error("Usage:\n./pipex infile cmd1 cmd2 outfile\n", ERROR);
-	return (0);
-}
-
-void	ft_error(char *str, int exit_code)
-{
-	perror(str);
+	perror(msg);
 	exit(exit_code);
 }
 
