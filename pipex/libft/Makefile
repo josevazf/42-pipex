@@ -6,7 +6,7 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/15 22:23:12 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/20 09:04:34 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/09/25 15:17:11 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,8 @@ SRCS		= ft_atoi.c \
 			  ft_iswhitespace.c \
 			  ft_isdelimiter.c \
 			  ft_firstword.c \
-			  ft_free_matrix.c
+			  ft_free_matrix.c \
+			  ft_error.c
 
 # Substitute .c with .o 
 OBJS		= $(SRCS:%.c=$(OBJS_DIR)/%.o)
