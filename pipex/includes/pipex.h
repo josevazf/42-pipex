@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:49:31 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/25 15:15:38 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:20:58 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,13 @@
 
 // pipex_main.c
 void 	pipex(char **argv, char **envp);
+void	ft_error(char *msg, int exit_code);
 /* void	process_child(int *pipe_fd);
 void 	process_parent(pid_t pid, int *pipe_fd); */
 
-// pipex_path.c
+// pipex_utils.c
 char	**parse_path(char **envp);
 char	*get_cmd_path(char **clean_envp, char *cmd);
-
-// pipex_err_checker.c
-void	ft_error(char *msg, int exit_code);
-void	free_tab_and_exit(char **strs, char *message);
 
 // pipex_execute.c
 void	process_file(char *file_name, int file_type);

@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/25 16:08:00 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:20:48 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ void 	process_parent(pid_t pid, int *pipe_fd)
 	dup2(pipe_fd[0], STDIN_FILENO);
 	close(pipe_fd[0]);
 ) */
+
+void	ft_error(char *msg, int exit_code)
+{
+	perror(msg);
+	exit(exit_code);
+}
 
 void 	pipex(char **argv, char **envp)
 {

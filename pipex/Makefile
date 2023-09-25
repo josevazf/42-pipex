@@ -6,7 +6,7 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 10:36:01 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/25 15:28:22 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/09/25 16:18:55 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CFLAGS		= -Wall -Wextra -Werror
 MK_FLAG		= --no-print-directory
 RM			= rm -rf
 
-SRCS		= pipex_main.c pipex_execute.c pipex_path.c pipex_err_checker.c
+SRCS		= pipex_main.c pipex_execute.c pipex_path.c
 # Substitute .c with .o 
 OBJS		= $(SRCS:%.c=$(OBJS_DIR)/%.o)
 
