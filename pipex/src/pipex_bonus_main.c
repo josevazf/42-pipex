@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_main.c                                       :+:      :+:    :+:   */
+/*   pipex_bonus_main.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/27 09:58:57 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/27 10:32:46 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,15 @@ void 	pipex(char **argv, char **envp)
 
 int 	main(int argc, char **argv, char **envp) 
 {
-	if (argc != 5)
+	if (argc < 5)
 	{
-		ft_printf("pipex: Usage:\n./pipex infile cmd1 cmd2 outfile\n");
+		ft_printf("pipex: Usage:\n./pipex infile cmd1 cmd2 cmd3 ... cmdn outfile\n");
+		ft_printf("./pipex here_doc LIMITER cmd1 cmd2 cmd3 ... cmdn outfile\n");
 		exit(ERROR);
 	}
-	process_file(argv[1], IN_FILE);
+	if (argv[1] == "here_doc")
+		process_here_doc(argv);
+	else
+		process_file(argv[1], IN_FILE);
 	pipex(argv, envp);
 }

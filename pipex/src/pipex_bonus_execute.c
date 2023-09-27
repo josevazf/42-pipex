@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_execute.c                                    :+:      :+:    :+:   */
+/*   pipex_bonus_execute.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 09:46:06 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/27 09:49:12 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/27 10:31:00 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	process_file(char *file_name, int file_type)
 	close(file_fd);
 }
 
-void	execute(char *argv, char **envp) 
+void	execute(char *argv, char **envp)
 {
 	char	**cmd;
 	char	**paths;
@@ -55,4 +55,9 @@ void	execute(char *argv, char **envp)
 	ft_free_matrix(cmd);
 	ft_free_matrix(paths);
 	free(cmd_path);
+}
+
+void	process_here_doc(char **argv)
+{
+	
 }

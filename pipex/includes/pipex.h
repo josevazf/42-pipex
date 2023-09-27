@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:49:31 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/25 17:30:19 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/27 09:35:38 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <sys/wait.h>
 # define SUCCESS 0
 # define ERROR 1
+# define CMD_NOT_FOUND 127
 # define IN_FILE 0
 # define OUT_FILE 1
 
