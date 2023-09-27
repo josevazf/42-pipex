@@ -6,7 +6,7 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 10:36:01 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/25 16:18:55 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/09/27 13:06:33 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,20 @@ MK_FLAG		= --no-print-directory
 RM			= rm -rf
 
 SRCS		= pipex_main.c pipex_execute.c pipex_path.c
+SRCS_BONUS	= pipex_bonus_main.c pipex_bonus_execute.c pipex_bonus_path.c
+
 # Substitute .c with .o 
 OBJS		= $(SRCS:%.c=$(OBJS_DIR)/%.o)
+OBJS_BONUS	= $(SRCS_BONUS:%.c=$(OBJS_DIR/%.o))
 
 #default target
 all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	echo "Finished!"
+
+bonus: $(OBJS_BONUS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) -o $(NAME)
 	echo "Finished!"
 
 #create .o fies
