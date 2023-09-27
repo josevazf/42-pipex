@@ -6,7 +6,7 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 10:36:01 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/27 13:06:33 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/09/27 18:57:35 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,15 +19,14 @@ LIBFT_DIR	= ./libft
 
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
-MK_FLAG		= --no-print-directory
 RM			= rm -rf
 
-SRCS		= pipex_main.c pipex_execute.c pipex_path.c
-SRCS_BONUS	= pipex_bonus_main.c pipex_bonus_execute.c pipex_bonus_path.c
+#SRCS		= pipex_main.c pipex_execute.c pipex_path.c
+SRCS	= pipex_main_bonus.c pipex_execute_bonus.c pipex_path_bonus.c
 
 # Substitute .c with .o 
 OBJS		= $(SRCS:%.c=$(OBJS_DIR)/%.o)
-OBJS_BONUS	= $(SRCS_BONUS:%.c=$(OBJS_DIR/%.o))
+#OBJS_BONUS	= $(SRCS_BONUS:%.c=$(OBJS_DIR)/%.o)
 
 #default target
 all: $(NAME)
@@ -40,19 +39,19 @@ bonus: $(OBJS_BONUS) $(LIBFT)
 	echo "Finished!"
 
 #create .o fies
-# $< first prerequisite aka .c; $@ output/targer file aka .o
+# $< first prerequisite aka .c; $@ output/target file aka .o
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	mkdir -p $(@D)
 	$(CC) -I $(INCLUDES) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
 	echo "Compiling necessary libs..."
-	$(MAKE) $(MK_FLAG) -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR)
 
 #remove .o files
 clean:
 	$(RM) $(OBJS_DIR)
-	$(MAKE) $(MK_FLAG) clean -C $(LIBFT_DIR)
+	$(MAKE) clean -C $(LIBFT_DIR)
 
 fclean: clean
 	$(RM) $(NAME) $(LIBFT)
