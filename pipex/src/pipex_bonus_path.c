@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_path.c                                       :+:      :+:    :+:   */
+/*   pipex_bonus_path.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 10:11:42 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/25 16:20:32 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/27 10:39:11 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 // Find 'PATH=' in envp file and return the paths delimited by ':'
 char	**parse_path(char **envp)

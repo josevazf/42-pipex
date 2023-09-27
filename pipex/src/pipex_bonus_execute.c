@@ -6,11 +6,23 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 09:46:06 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/27 10:31:00 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/27 12:14:10 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
+
+void	process_here_doc(char **argv)
+{
+	int file_fd;
+	char *limiter;
+	
+	file_fd = open("here_doc", O_WRONLY | O_CREAT | O_APPEND, 0644);
+	if (file_fd == -1)
+		ft_error("pipex: File error", ERROR);
+	
+	
+}
 
 void	process_file(char *file_name, int file_type)
 {
@@ -21,7 +33,7 @@ void	process_file(char *file_name, int file_type)
 	if (file_type == OUT_FILE)
 		file_fd = open(file_name, O_WRONLY | O_CREAT | O_TRUNC, 0644); // owner r/w, group/others r
 	if (file_fd == -1)
-		ft_error("Infile error", ERROR);
+		ft_error("pipex: File error", ERROR);
 	if (file_type == IN_FILE)
 		dup2(file_fd, STDIN_FILENO);
 	if (file_type == OUT_FILE)
@@ -57,7 +69,3 @@ void	execute(char *argv, char **envp)
 	free(cmd_path);
 }
 
-void	process_here_doc(char **argv)
-{
-	
-}

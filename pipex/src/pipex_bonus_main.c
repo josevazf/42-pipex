@@ -6,11 +6,11 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/27 10:32:46 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/27 10:39:06 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 void	ft_error(char *msg, int exit_code)
 {
