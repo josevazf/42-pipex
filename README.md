@@ -1,6 +1,6 @@
 # 42-pipex
 
-pipex is a 42 school project aimed to better understand shell redirection and pipes, by handling them in C.
+This project's goal is to better understand shell redirection and pipes, by handling them in C.
 
 This pipex program takes an input file, performs a command on it, pipes the result to another command which then writes its result to an output file. The result is virtually identical to this kind of shell command:
 ```
