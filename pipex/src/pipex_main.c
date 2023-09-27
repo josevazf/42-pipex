@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/27 09:58:57 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/27 12:40:02 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void 	pipex(char **argv, char **envp)
 	int 	pipe_fd[2];
 	
 	if (pipe(pipe_fd) == -1)
-		ft_error("pipex: Failed creating pipe", ERROR);
+		ft_error("pipex: failed creating pipe", ERROR);
 	pid = fork();
 	if (pid == -1)
-		ft_error("pipex: Failed creating fork", ERROR);
+		ft_error("pipex: failed creating fork", ERROR);
 	if (pid == 0)
 	{
 		close(pipe_fd[0]);
@@ -50,7 +50,7 @@ int 	main(int argc, char **argv, char **envp)
 {
 	if (argc != 5)
 	{
-		ft_printf("pipex: Usage:\n./pipex infile cmd1 cmd2 outfile\n");
+		ft_printf("pipex: usage:\n./pipex infile cmd1 cmd2 outfile\n");
 		exit(ERROR);
 	}
 	process_file(argv[1], IN_FILE);
