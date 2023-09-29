@@ -6,13 +6,38 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 09:46:06 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/29 17:58:59 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:45:22 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
-void	create_here_doc(char **argv)
+void 	process_dev_urandom(void)
+{
+	int 	urandom_fd;
+	int		temp_fd;
+	int		i;
+	char 	*input;
+	
+	i = 0;
+	urandom_fd = open("/dev/urandom", O_RDONLY);
+	temp_fd = open("temp_urandom", O_CREAT | O_RDWR | O_APPEND, 0644);
+	if (urandom_fd == -1 || temp_fd == -1)
+		ft_error("pipex: file error", ERROR);
+	while (++i < 100)
+	{
+		input = get_next_line(urandom_fd);
+		if (!input)
+			ft_error("pipex: input error", 1);
+	 	ft_putstr_fd(input, temp_fd);
+		free(input);
+	}
+	close(urandom_fd);
+	close(temp_fd);
+	process_file("temp_urandom", IN_FILE);	
+}
+
+void	process_here_doc(char **argv)
 {
 	int		file_fd;
 	char 	*input;
