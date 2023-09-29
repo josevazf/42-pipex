@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/27 12:40:02 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:51:23 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ int 	main(int argc, char **argv, char **envp)
 	{
 		ft_printf("pipex: usage:\n./pipex infile cmd1 cmd2 outfile\n");
 		exit(ERROR);
+	}
+	if (ft_strncmp(argv[1], "/dev/urandom", ft_strlen("/dev/urandom")) == 0)
+	{
+		process_dev_urandom(argv, envp);
 	}
 	process_file(argv[1], IN_FILE);
 	pipex(argv, envp);

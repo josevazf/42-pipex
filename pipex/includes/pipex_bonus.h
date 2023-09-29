@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:49:31 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/29 13:13:17 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:23:09 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define OUT_FILE 1
 
 // pipex_bonus_main.c
-void 	pipex(char **argv, char **envp);
+void 	pipex(char *argv, char **envp);
 void	ft_error(char *msg, int exit_code);
 
 // pipex_bonus_utils.c

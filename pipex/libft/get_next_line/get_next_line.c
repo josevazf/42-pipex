@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 09:31:25 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/19 10:48:37 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:53:47 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_get_text(int fd, char *bufftxt)
 	if (!temp)
 		return (NULL);
 	rbytes = 1;
-	while (!ft_strchr(bufftxt, '\n') && rbytes != 0)
+	while (!ft_strchr2(bufftxt, '\n') && rbytes != 0)
 	{
 		rbytes = read(fd, temp, BUFFER_SIZE);
 		if (rbytes == -1)
@@ -31,7 +31,7 @@ char	*ft_get_text(int fd, char *bufftxt)
 			return (NULL);
 		}
 		temp[rbytes] = '\0';
-		bufftxt = ft_strjoin(bufftxt, temp);
+		bufftxt = ft_strjoin2(bufftxt, temp);
 	}
 	free(temp);
 	return (bufftxt);
@@ -39,16 +39,16 @@ char	*ft_get_text(int fd, char *bufftxt)
 
 char	*get_next_line(int fd)
 {
-	static char	*bufftxt[FOPEN_MAX];
+	static char	*bufftxt;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FOPEN_MAX)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	bufftxt[fd] = ft_get_text(fd, bufftxt[fd]);
-	if (!bufftxt[fd])
+	bufftxt = ft_get_text(fd, bufftxt);
+	if (!bufftxt)
 		return (NULL);
-	line = ft_strtrim_l(bufftxt[fd]);
-	bufftxt[fd] = ft_strtrim_r(bufftxt[fd]);
+	line = ft_strtrim_l(bufftxt);
+	bufftxt = ft_strtrim_r(bufftxt);
 	return (line);
 }
 
@@ -58,30 +58,17 @@ char	*get_next_line(int fd)
 	char	*line2;
 	char	*line3;
 	int		i;
-	int		fd1;
-	int		fd2;
-	int		fd3;
-	
+	int		fd;
 	
 	i = 0;
-	fd1 = open("docs/text1.txt", O_RDONLY);
-	fd2 = open("docs/text2.txt", O_RDONLY);
-	fd3 = open("docs/text3.txt", O_RDONLY);
+	fd = open("docs/text1.txt", O_RDONLY);
 	while (i < 7)
 	{
-		line = get_next_line(fd1);
+		line = get_next_line(fd);
 		printf(" %s", line);
 		free(line);
-		line2 = get_next_line(fd2);
-		printf("%s", line2);
-		free(line2);
-		line3 = get_next_line(fd3);
-		printf("%s", line3);
-		free(line3);
 		i++;
 	}
-	close(fd1);
-	close(fd2);
-	close(fd3);
+	close(fd);
 	return (0);
 } */

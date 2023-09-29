@@ -6,11 +6,16 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 09:46:06 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/27 09:49:12 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:51:43 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void 	process_dev_urandom(char *argv, char **envp)
+{
+	
+}
 
 void	process_file(char *file_name, int file_type)
 {
