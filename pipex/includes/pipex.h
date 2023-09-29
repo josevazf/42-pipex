@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:49:31 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/27 09:35:38 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:21:19 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char	**parse_path(char **envp);
 char	*get_cmd_path(char **clean_envp, char *cmd);
 
 // pipex_execute.c
+void 	process_dev_urandom(void);
 void	process_file(char *file_name, int file_type);
 void	execute(char *argv, char **envp);
 
