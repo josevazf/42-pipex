@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 09:46:06 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/27 17:29:36 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/29 12:18:04 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	process_here_doc(char **argv)
 	int		file_fd;
 	char 	*input;
 	
-	if (open("here_doc", O_RDWR | O_CREAT | O_APPEND, 0644) == -1)
+	file_fd = open("here_doc", O_RDWR | O_CREAT | O_APPEND, 0644);
+	if (file_fd == -1)
 	{
 		unlink("here_doc");
 		ft_error("pipex: here_doc error", ERROR);

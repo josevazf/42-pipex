@@ -6,7 +6,7 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 10:36:01 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/27 18:57:35 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/09/29 11:39:05 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,12 @@ CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -rf
 
-#SRCS		= pipex_main.c pipex_execute.c pipex_path.c
-SRCS	= pipex_main_bonus.c pipex_execute_bonus.c pipex_path_bonus.c
+SRCS		= pipex_main.c pipex_execute.c pipex_path.c
+SRCS_BONUS	= pipex_main_bonus.c pipex_execute_bonus.c pipex_path_bonus.c
 
 # Substitute .c with .o 
 OBJS		= $(SRCS:%.c=$(OBJS_DIR)/%.o)
-#OBJS_BONUS	= $(SRCS_BONUS:%.c=$(OBJS_DIR)/%.o)
+OBJS_BONUS	= $(SRCS_BONUS:%.c=$(OBJS_DIR)/%.o)
 
 #default target
 all: $(NAME)
