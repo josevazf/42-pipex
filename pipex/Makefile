@@ -6,27 +6,31 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 10:36:01 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/29 11:39:05 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/09/29 13:21:46 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= pipex
-SRCS_DIR	= src
-OBJS_DIR	= objs
-INCLUDES	= includes
-LIBFT		= ./libft/libft.a
-LIBFT_DIR	= ./libft
+NAME			= pipex
 
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
-RM			= rm -rf
+SRCS_DIR		= src/mandatory
+SRCS_BONUS_DIR	= src/bonus
 
-SRCS		= pipex_main.c pipex_execute.c pipex_path.c
-SRCS_BONUS	= pipex_main_bonus.c pipex_execute_bonus.c pipex_path_bonus.c
+OBJS_DIR		= objs
+
+INCLUDES		= includes
+LIBFT			= ./libft/libft.a
+LIBFT_DIR		= ./libft
+
+CC				= cc
+CFLAGS			= -Wall -Wextra -Werror
+RM				= rm -rf
+
+SRCS			= pipex_main.c pipex_execute.c pipex_path.c
+SRCS_BONUS		= pipex_main_bonus.c pipex_execute_bonus.c pipex_path_bonus.c
 
 # Substitute .c with .o 
-OBJS		= $(SRCS:%.c=$(OBJS_DIR)/%.o)
-OBJS_BONUS	= $(SRCS_BONUS:%.c=$(OBJS_DIR)/%.o)
+OBJS			= $(SRCS:%.c=$(OBJS_DIR)/%.o)
+OBJS_BONUS		= $(SRCS_BONUS:%.c=$(OBJS_DIR)/%.o)
 
 #default target
 all: $(NAME)
@@ -41,6 +45,10 @@ bonus: $(OBJS_BONUS) $(LIBFT)
 #create .o fies
 # $< first prerequisite aka .c; $@ output/target file aka .o
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+	mkdir -p $(@D)
+	$(CC) -I $(INCLUDES) $(CFLAGS) -c $< -o $@
+
+$(OBJS_DIR)/%.o: $(SRCS_BONUS_DIR)/%.c
 	mkdir -p $(@D)
 	$(CC) -I $(INCLUDES) $(CFLAGS) -c $< -o $@
 

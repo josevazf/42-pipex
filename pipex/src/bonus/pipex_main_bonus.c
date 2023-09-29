@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/29 12:15:32 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:22:43 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int 	main(int argc, char **argv, char **envp)
 		exit(ERROR);
 	}
 	if (ft_strncmp(argv[1], "here_doc", 8))
-		process_here_doc(argv);
+		create_here_doc(argv);
 	else
 		process_file(argv[1], IN_FILE);
 	pipex(argv, envp);

@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:49:31 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/27 12:21:12 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:13:17 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*get_cmd_path(char **clean_envp, char *cmd);
 
 // pipex_bonus_execute.c
 void	process_file(char *file_name, int file_type);
-void	process_here_doc(char **argv);
+void	create_here_doc(char **argv);
 void	execute(char *argv, char **envp);
 
 #endif

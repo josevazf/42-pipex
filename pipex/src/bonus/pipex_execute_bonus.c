@@ -6,13 +6,13 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 09:46:06 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/29 12:18:04 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:14:02 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex_bonus.h"
 
-void	process_here_doc(char **argv)
+void	create_here_doc(char **argv)
 {
 	int		file_fd;
 	char 	*input;
@@ -23,7 +23,7 @@ void	process_here_doc(char **argv)
 		unlink("here_doc");
 		ft_error("pipex: here_doc error", ERROR);
 	}
-	while(1)
+	while (1)
 	{
 		ft_putstr_fd("here_doc>", 1);
 		input = get_next_line(0);
@@ -33,11 +33,13 @@ void	process_here_doc(char **argv)
 			ft_strncmp(input, argv[2], ft_strlen(argv[2])) == 0)
 		{
 			free(input);
-			break ;
+			break;
 		}
 		ft_putstr_fd(input, file_fd);
 		free(input);
 	}
+	close(file_fd);
+	process_file("here_doc", IN_FILE);
 }
 
 void	process_file(char *file_name, int file_type)
