@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/29 21:52:54 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/30 08:08:25 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int 	main(int argc, char **argv, char **envp)
 	{
 		ft_printf("1");
 		process_dev_urandom();
-		ft_printf("2");
+		ft_printf("-2");
 	}
 	else
 		process_file(argv[1], IN_FILE);

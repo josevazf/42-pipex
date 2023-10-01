@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 09:46:06 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/29 18:45:22 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/09/30 08:07:27 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ void 	process_dev_urandom(void)
 	temp_fd = open("temp_urandom", O_CREAT | O_RDWR | O_APPEND, 0644);
 	if (urandom_fd == -1 || temp_fd == -1)
 		ft_error("pipex: file error", ERROR);
-	while (++i < 100)
+	while (++i < 10)
 	{
 		input = get_next_line(urandom_fd);
 		if (!input)
 			ft_error("pipex: input error", 1);
 	 	ft_putstr_fd(input, temp_fd);
 		free(input);
+		ft_printf("%i", i);
 	}
 	close(urandom_fd);
 	close(temp_fd);
