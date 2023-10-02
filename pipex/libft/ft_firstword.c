@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:08:19 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/19 11:25:50 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/10/02 09:45:47 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 char	*ft_firstword(char *argv)
 {
-	char 	*first_word;
+	char	*first_word;
 	int		start;
 	int		i;
 

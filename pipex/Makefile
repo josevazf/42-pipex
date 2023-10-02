@@ -6,7 +6,7 @@
 #    By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 10:36:01 by jrocha-v          #+#    #+#              #
-#    Updated: 2023/09/29 13:21:46 by jrocha-v         ###   ########.fr        #
+#    Updated: 2023/10/02 09:30:41 by jrocha-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT			= ./libft/libft.a
 LIBFT_DIR		= ./libft
 
 CC				= cc
-CFLAGS			= -Wall -Wextra -Werror
+CFLAGS			= -Wall -Wextra -Werror -g
 RM				= rm -rf
 
 SRCS			= pipex_main.c pipex_execute.c pipex_path.c

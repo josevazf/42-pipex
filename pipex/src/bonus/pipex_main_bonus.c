@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/30 08:08:25 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/10/02 09:54:04 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,23 @@ void	ft_error(char *msg, int exit_code)
 	exit(exit_code);
 }
 
-int		check_args(int argc)
+int	check_args(int argc)
 {
 	if (argc < 5)
 	{
-		ft_printf("pipex: usage:\n./pipex infile cmd1 cmd2 cmd3 ... cmdn outfile\n");
+		ft_printf("pipex: usage:\n./pipex infile cmd1 cmd2 cmd3 \
+		... cmdn outfile\n");
 		ft_printf("./pipex here_doc LIMITER cmd1 cmd2 cmd3 ... cmdn outfile\n");
 		exit(ERROR);
 	}
 	return (SUCCESS);
 }
 
-void 	pipex(char *argv, char **envp)
+void	pipex(char *argv, char **envp)
 {
-	pid_t 	pid;
-	int 	pipe_fd[2];
-	
+	pid_t	pid;
+	int		pipe_fd[2];
+
 	if (pipe(pipe_fd) == -1)
 		ft_error("pipex: failed creating pipe", ERROR);
 	pid = fork();
@@ -55,10 +56,10 @@ void 	pipex(char *argv, char **envp)
 	}
 }
 
-int 	main(int argc, char **argv, char **envp) 
+int	main(int argc, char **argv, char **envp)
 {
-	int i;
-	
+	int	i;
+
 	i = 2;
 	check_args(argc);
 	if (ft_strncmp(argv[1], "here_doc", 9) == 0)
@@ -67,11 +68,10 @@ int 	main(int argc, char **argv, char **envp)
 		unlink("here_doc");
 		i = 3;
 	}
-	else if (ft_strncmp(argv[1], "/dev/urandom", ft_strlen("/dev/urandom")) == 0)
+	else if (ft_strncmp(argv[1], "/dev/urandom", \
+	ft_strlen("/dev/urandom")) == 0)
 	{
-		ft_printf("1");
 		process_dev_urandom();
-		ft_printf("-2");
 	}
 	else
 		process_file(argv[1], IN_FILE);

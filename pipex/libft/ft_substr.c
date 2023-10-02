@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 17:20:41 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/04/19 14:36:46 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/10/02 09:44:23 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
-{	
+{
 	char	*substr;
 	size_t	i;
 

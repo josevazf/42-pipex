@@ -6,35 +6,35 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 09:46:06 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/09/29 18:21:58 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/10/02 10:15:05 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void 	process_dev_urandom(void)
+void	process_dev_urandom(void)
 {
-	int 	urandom_fd;
+	int		urandom_fd;
 	int		temp_fd;
 	int		i;
-	char 	*input;
-	
+	char	*input;
+
 	i = 0;
 	urandom_fd = open("/dev/urandom", O_RDONLY);
-	temp_fd = open("temp_urandom", O_CREAT | O_RDWR | O_APPEND, 0644);
+	temp_fd = open("temp_urandom.txt", O_CREAT | O_RDWR | O_APPEND, 0644);
 	if (urandom_fd == -1 || temp_fd == -1)
 		ft_error("pipex: file error", ERROR);
-	while (++i < 100)
+	while (++i < 50)
 	{
 		input = get_next_line(urandom_fd);
 		if (!input)
-			ft_error("pipex: input error", 1);
-	 	ft_putstr_fd(input, temp_fd);
+			ft_error("pipex: input error", ERROR);
+		ft_putstr_fd(input, temp_fd);
 		free(input);
 	}
 	close(urandom_fd);
 	close(temp_fd);
-	process_file("temp_urandom", IN_FILE);	
+	process_file("temp_urandom.txt", IN_FILE);
 }
 
 void	process_file(char *file_name, int file_type)
@@ -44,7 +44,7 @@ void	process_file(char *file_name, int file_type)
 	if (file_type == IN_FILE)
 		file_fd = open(file_name, O_RDONLY);
 	if (file_type == OUT_FILE)
-		file_fd = open(file_name, O_WRONLY | O_CREAT | O_TRUNC, 0644); // owner r/w, group/others r
+		file_fd = open(file_name, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (file_fd == -1)
 		ft_error("pipex: file error", ERROR);
 	if (file_type == IN_FILE)
@@ -54,7 +54,7 @@ void	process_file(char *file_name, int file_type)
 	close(file_fd);
 }
 
-void	execute(char *argv, char **envp) 
+void	execute(char *argv, char **envp)
 {
 	char	**cmd;
 	char	**paths;
