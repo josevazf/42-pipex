@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 09:46:06 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/10/02 10:08:09 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/10/03 09:19:30 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,13 @@ void	process_file(char *file_name, int file_type)
 		file_fd = open(file_name, O_RDONLY);
 	if (file_type == OUT_FILE)
 		file_fd = open(file_name, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (file_type == HERE_DOC_FILE)
+		file_fd = open(file_name, O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (file_fd == -1)
 		ft_error("pipex: file error", ERROR);
 	if (file_type == IN_FILE)
 		dup2(file_fd, STDIN_FILENO);
-	if (file_type == OUT_FILE)
+	if (file_type == !IN_FILE)
 		dup2(file_fd, STDOUT_FILENO);
 	close(file_fd);
 }

@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:14:52 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/10/02 09:54:04 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/10/03 09:19:57 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,15 @@ int	main(int argc, char **argv, char **envp)
 	ft_strlen("/dev/urandom")) == 0)
 	{
 		process_dev_urandom();
+		unlink("temp_urandom.txt");
 	}
 	else
 		process_file(argv[1], IN_FILE);
 	while (i < argc - 2)
 		pipex(argv[i++], envp);
-	process_file(argv[argc - 1], OUT_FILE);
+	if (ft_strncmp(argv[1], "here_doc", 9) == 0)
+		process_file(argv[argc - 1], HERE_DOC_FILE);
+	else
+		process_file(argv[argc - 1], OUT_FILE);
 	execute(argv[argc - 2], envp);
 }

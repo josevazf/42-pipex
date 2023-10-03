@@ -6,7 +6,7 @@
 /*   By: jrocha-v <jrocha-v@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 09:49:31 by jrocha-v          #+#    #+#             */
-/*   Updated: 2023/10/02 10:17:47 by jrocha-v         ###   ########.fr       */
+/*   Updated: 2023/10/03 09:17:51 by jrocha-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define CMD_NOT_FOUND 127
 # define IN_FILE 0
 # define OUT_FILE 1
+# define HERE_DOC_FILE 2
 
 // pipex_bonus_main.c
 void	pipex(char *argv, char **envp);
