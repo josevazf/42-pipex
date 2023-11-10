@@ -6,9 +6,6 @@ This pipex program takes an input file, performs a command on it, pipes the resu
 ```
 $ < input_file command1 | command2 > output file
 ```
-
----
-
 ## Usage
 To compile, use ```make```, ```make all``` or ```make bonus```.
 
@@ -37,3 +34,14 @@ You will then be asked to input text which will be used as input for the command
 ```
 $ << LIMITER command1 | command2 | ... | commandn >> output_file
 ```
+
+## Norminette
+This project was written in accordance with the Norm, which is the coding standard of the 42 school.
+
+The Norm includes:
+- Forbidden: for, do...while, switch, case, goto, ternary operators and variable-length arrays 
+- Maximum of 25 lines per function
+- Maximum line length: 80 columns
+- Maximum 4 parameters per function 
+- Variable assignments and declarations must be on separate lines
+- etc...
